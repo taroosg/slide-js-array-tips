@@ -143,6 +143,7 @@
 <li><code>map()</code> や <code>filter()</code> の小技</li>
 <li><code>new Array()</code> 使ってる？？</li>
 <li><code>...</code> の威力</li>
+<li>分割代入</li>
 <li>まとめなど</li>
 </ul>
 
@@ -152,61 +153,250 @@
 
 
     
+    <section>
         <section >
-            
             <p>配列使ってますか？？</p>
 
             </section>
+        
+            <section >
+                <p><code>[&quot;配列&quot;, &quot;は&quot;, &quot;いいぞ&quot;].join(&quot;\n&quot;);</code></p>
+<pre><code class="language-js">配列;
+は;
+いいぞ;
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><code>&quot;配列&quot; &gt; (&quot;繰り返し&quot; || &quot;条件分岐&quot;) </code></p>
+<p><code>// true</code></p>
+
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <p>JS で配列を扱うときのコツ</p>
 
             </section>
+        
+            <section >
+                <p>配列の中身は触るな．．！</p>
+
+            </section>
+        
+            <section >
+                <p>JS の配列は「参照」である！</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-js">const array01 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 27, 29];
+const array02 = array1;
+
+// array1 に 31 を追加
+array01.push(31);
+
+console.log(array01);
+console.log(array02);
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p>結果</p>
+<pre><code class="language-js">// array01
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 27, 29, 31];
+
+// array02
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 27, 29, 31];
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p>元の配列を変更するとヤバい．．！</p>
+
+            </section>
+        
+            <section >
+                <p>コツ</p>
+<ul>
+<li>元の配列は触らない．</li>
+<li>元の配列に処理を加えた「別の配列」をつくる</li>
+</ul>
+
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <p><code>map()</code> や <code>filter()</code> の小技</p>
 
             </section>
+        
+            <section >
+                <p>配列に一定の処理を加えた「新しい配列」を生成</p>
+
+            </section>
+        
+            <section >
+                <p>基本</p>
+<pre><code class="language-js">[1, 2, 3, 4, 5, 6, 7, 8, 9].map((x) =&gt; x * 2);
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p>第 2 引数に index を取れる</p>
+<pre><code class="language-js">// 初項2，公差3の等差数列をつくる
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0].map((x, i) =&gt; x + 2 + i * 3);
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p>第 3 引数に元の配列を取れる</p>
+<pre><code class="language-js">// 例：時系列のデータ
+const data01 = [2, 3, 5, 7, 11, 13, 17, 20, 23, 27, 29, 31];
+
+// 最終項の値に対する%に換算したい
+data01.map((x, i, arr) =&gt; (x * 100) / arr[arr.length - 1]);
+</code></pre>
+
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <p><code>new Array()</code> 使ってる？？</p>
 
             </section>
+        
+            <section >
+                <p>けっこう便利な場面もある．</p>
+<pre><code class="language-js">new Array(100).fill(0);
+</code></pre>
+
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
             <p><code>...</code> の威力</p>
 
             </section>
+        
+            <section >
+                <p>時々みるけどググれないやつ</p>
+
+            </section>
+        
+            <section >
+                <p>（スプレッド構文）</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-js">// 例：2つの配列をマージしたい
+const array01 = [2, 3, 5];
+const array02 = [7, 11, 13];
+
+// array01とarray02には影響しない
+const array03 = [...array01, ...array02];
+</code></pre>
+
+            </section>
+        
+
+    </section>
     
 
 
 
     
+    <section>
         <section >
-            
+            <p>分割代入</p>
+
+            </section>
+        
+            <section >
+                <p>最大値最小値の例</p>
+<pre><code class="language-js">// 例：順番が適当なデータ
+const data04 = [20, 5, 13, 29, 3, 11, 2, 27, 7, 17, 31, 23];
+
+// 最大値と最小値を取得したい
+// 結果には`[2, 31]`の配列が入る
+const [min, max] = data04
+  .sort((a, b) =&gt; a - b)
+  .filter((x, i, arr) =&gt; i === 0 || i === arr.length - 1);
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
             <p>まとめなど</p>
 
             </section>
+        
+            <section >
+                <p>データは配列形式のことが多い．</p>
+
+            </section>
+        
+            <section >
+                <p>配列はなれないとバグを生みやすい．</p>
+
+            </section>
+        
+            <section >
+                <p>配列の処理を自分で書けるようになると</p>
+<p>世界が広がる</p>
+
+            </section>
+        
+            <section >
+                <p>配列を使おう！！</p>
+
+            </section>
+        
+
+    </section>
     
 
 

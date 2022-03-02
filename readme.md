@@ -1,3 +1,3 @@
 # Deploy
 
-[https://taroosg.github.io/slide-rust-deno-telegram/](https://taroosg.github.io/slide-rust-deno-telegram/)
+[https://taroosg.github.io/slide-js-array-tips/](https://taroosg.github.io/slide-js-array-tips/)
