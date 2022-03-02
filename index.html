@@ -160,10 +160,16 @@
             </section>
         
             <section >
-                <p><code>[&quot;配列&quot;, &quot;は&quot;, &quot;いいぞ&quot;].join(&quot;\n&quot;);</code></p>
-<pre><code class="language-js">配列;
-は;
-いいぞ;
+                <p>JS のさしすせそ</p>
+<pre><code class="language-js">[&quot;最初は&quot;, &quot;仕上げは&quot;, &quot;全ては&quot;, &quot;世界は&quot;, &quot;そう，&quot;]
+  .map((x) =&gt; `${x}配列`)
+  .join(&quot;\n&quot;);
+
+// 最初は配列
+// 仕上げは配列
+// 全ては配列
+// 世界は配列
+// そう，配列
 </code></pre>
 
             </section>
@@ -188,7 +194,9 @@
             </section>
         
             <section >
-                <p>配列の中身は触るな．．！</p>
+                <ol>
+<li>配列の中身は触るな．．！</li>
+</ol>
 
             </section>
         
@@ -227,10 +235,28 @@ console.log(array02);
             </section>
         
             <section >
+                <ol start="2">
+<li>「インデックス」をうまく使え！</li>
+</ol>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-js">// あたりはずれのどちらかを出したい
+const data = [&quot;あたり&quot;, &quot;はずれ&quot;];
+
+// 条件分岐より配列だッ！
+data[~~(Math.random() * 2)];
+</code></pre>
+
+            </section>
+        
+            <section >
                 <p>コツ</p>
 <ul>
 <li>元の配列は触らない．</li>
 <li>元の配列に処理を加えた「別の配列」をつくる</li>
+<li>インデックスをうまく使う．</li>
 </ul>
 
             </section>
